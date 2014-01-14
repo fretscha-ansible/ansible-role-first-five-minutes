@@ -1,4 +1,4 @@
-Role Name
+First Five Minutes
 ========
 
 A brief description of the role goes here.
@@ -21,7 +21,7 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
