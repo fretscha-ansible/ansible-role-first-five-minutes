@@ -4,10 +4,6 @@
   sudo: yes
   apt: pkg=ufw state=installed
 
-- name: allow port 5099
-  sudo: yes
-  shell: ufw allow 5099/tcp
-
 - name: allow port 443
   sudo: yes
   shell: ufw allow 443/tcp

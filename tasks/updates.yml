@@ -2,8 +2,6 @@
 - name: set update cache and safe updates
   sudo: yes
   apt: update_cache=yes cache_valid_time=3600 upgrade=safe
-  when: ansible_distribution == 'Ubuntu'
-
 
 - name: Install Common Packages
   sudo: yes
@@ -13,7 +11,6 @@
      update-cache=yes
   with_items:
      - unattended-upgrades
-  when: ansible_distribution == 'Ubuntu'
 
 - name: update package list
   sudo: yes

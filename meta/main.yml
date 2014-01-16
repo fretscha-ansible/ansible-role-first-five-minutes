@@ -11,10 +11,7 @@ galaxy_info:
         - quantal
         - raring
         - saucy
-        - trusty
-    - name: Debian
-      versions:
-        - wheezy
+        #- trusty
   categories:
   - packaging
   - system
