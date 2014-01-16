@@ -19,9 +19,10 @@
   sudo: yes
   lineinfile: dest=/etc/apt/apt.conf.d/20auto-upgrades regexp='^APT::Periodic::Update-Package-Lists' line='APT::Periodic::Update-Package-Lists "1";' state=present
   tags : pkg
+  when: false
 
 - name: unattended update
   sudo: yes
   lineinfile: dest=/etc/apt/apt.conf.d/20auto-upgrades regexp='^APT::Periodic::Unattended-Upgrade' line='APT::Periodic::Unattended-Upgrade "1";' state=present
   tags : pkg
-
+  when: false

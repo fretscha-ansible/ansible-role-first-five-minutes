@@ -4,16 +4,17 @@ galaxy_info:
   description: First five minutes on a server
   license: MIT
   min_ansible_version: 1.4
-  - name: Ubuntu
-    versions:
-    - precise
-    - quantal
-    - raring
-    - saucy
-    - trusty
-  - name: Debian
-    versions:
-    - wheezy
+  platforms:
+    - name: Ubuntu
+      versions:
+        - precise
+        - quantal
+        - raring
+        - saucy
+        - trusty
+    - name: Debian
+      versions:
+        - wheezy
   categories:
   - packaging
   - system

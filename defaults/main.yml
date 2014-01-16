@@ -4,11 +4,14 @@
 # defaults for user.yml
 # root_password: test
 ffm_root_password: '$6$flk7B1CUbp$ymzXEZ.TRlPWmJaDLI1Y4T56uzTl1N0.QSTS1pfkCDd6LLY3QzyyKVTU3ayVYV5pQgutIeFwSWQRQzsJzGmzR0'
+
+# static defined deploy user
+ffm_deploy_user: deploy
 # deploy_password: test
 ffm_deploy_password: '$6$RUwI5ZvxW8U$Iq1e1JpZbOIKjpWKM9FZGVvsZyDCJa.cHVLD3wRcTbLFL6LmA9oBZzz5NXDrNEIPKUu.Jl.CfngwY528mHOay1'
 
 # defaults for postfix.yml
-ffm_postfix_smarthost: yes
+ffm_postfix_mode: 'smarthost'
 
 ffm_fqdn_hostname : server.acme.tld
 # postfix smarthost
