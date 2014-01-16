@@ -1,0 +1,6 @@
+---
+# file: fail2ban.yml
+
+- name: Install fail2ban
+  sudo: yes
+  apt: pkg=fail2ban state=installed

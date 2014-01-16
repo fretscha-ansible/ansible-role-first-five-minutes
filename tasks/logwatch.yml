@@ -1,0 +1,9 @@
+---
+# file: logwatch.yml
+- name: Install logwatch
+  sudo: yes
+  apt: pkg=logwatch state=installed
+
+- name: Make logwatch mail daily
+  sudo: yes
+  lineinfile: dest=/etc/cron.daily/00logwatch regexp="^/usr/sbin/logwatch" line="/usr/sbin/logwatch --output mail --mailto {{ ffm_logwatch_email }} --detail high" state=present create=yes

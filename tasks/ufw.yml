@@ -1,0 +1,22 @@
+---
+# file: ufw.yml
+- name: Install ufw
+  sudo: yes
+  apt: pkg=ufw state=installed
+
+- name: allow port 5099
+  sudo: yes
+  shell: ufw allow 5099/tcp
+
+- name: allow port 443
+  sudo: yes
+  shell: ufw allow 443/tcp
+
+- name: allow port 22
+  sudo: yes
+  shell: ufw allow 22/tcp
+
+- name: Enable ufw
+  sudo: yes
+  shell: echo 'y' | ufw enable
+

@@ -1,2 +1,16 @@
 ---
-# tasks file for role-first-five-minutes/
+# file: main.yml
+
+- name: Prepare acceleration on all servers
+  sudo: yes
+  apt: pkg=python-keyczar state=present update-cache=yes
+  tags: setup
+
+
+- include: updates.yml
+- include: users.yml
+- include: postfix.yml
+- include: logwatch.yml
+- include: fail2ban.yml
+- include: ufw.yml
+- include: auth.yml

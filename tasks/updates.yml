@@ -1,0 +1,27 @@
+---
+- name: set update cache and safe updates
+  sudo: yes
+  apt: update_cache=yes cache_valid_time=3600 upgrade=safe
+  when: ansible_distribution == 'Ubuntu'
+
+
+- name: Install Common Packages
+  sudo: yes
+  apt: >
+     pkg={{ item }}
+     state=present
+     update-cache=yes
+  with_items:
+     - unattended-upgrades
+  when: ansible_distribution == 'Ubuntu'
+
+- name: update package list
+  sudo: yes
+  lineinfile: dest=/etc/apt/apt.conf.d/20auto-upgrades regexp='^APT::Periodic::Update-Package-Lists' line='APT::Periodic::Update-Package-Lists "1";' state=present
+  tags : pkg
+
+- name: unattended update
+  sudo: yes
+  lineinfile: dest=/etc/apt/apt.conf.d/20auto-upgrades regexp='^APT::Periodic::Unattended-Upgrade' line='APT::Periodic::Unattended-Upgrade "1";' state=present
+  tags : pkg
+

@@ -1,0 +1,16 @@
+---
+# file: postfix.yml
+- name: Set up Postfix to relay mail
+  sudo: yes
+  template: src=postfix-smarthost.preseed.j2 dest=/tmp/postfix-smarthost.preseed validate='debconf-set-selections %s'
+  when: ansible_distribution == 'Ubuntu' and ffm_postfix_mode == 'smarthost'
+
+- name: Set up Postfix as mx
+  sudo: yes
+  template: src=postfix.preseed.j2 dest=/tmp/postfix.preseed validate='debconf-set-selections %s'
+  when: ansible_distribution == 'Ubuntu' and ffm_postfix_mode == 'internet'
+
+- name: Install Postfix Packages
+  sudo: yes
+  apt: pkg=postfix state=installed update-cache=yes
+  when: ansible_distribution == 'Ubuntu'
