@@ -1,12 +1,23 @@
-First Five Minutes
+First Five Minutes (ffm)
 ========
 
-A brief description of the role goes here.
+Bryan Kennedy's blog post [My First 5 Minutes On A Server; Or, Essential Security for Linux Servers][1] inspired me to write this role for ansible.
+
+The goal of this role is an basic initial setup with little security tweaks.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by the ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+This role requires Ansible 1.4 or higher.
+
+It has successfully been tested on following Digital Ocean images
+Ubuntu 12.04 (Precise Pangolin)
+Ubuntu 12.10 (Quantal Quetzal)
+Ubuntu 13.04 (Raring Ringtail)
+Ubuntu 13.10 (Saucy Salamander)
+
+Accelarated mod is disabled by default. Enabling the accelerated mode requires the `python-keyczar`package installed.
+
 
 Role Variables
 --------------
@@ -16,14 +27,40 @@ A description of the settable variables for this role should go here, including 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+no dependencies
 
 License
 -------
+The MIT License (MIT)
 
-MIT
+Copyright (c) 2013-14 Frederic Tschannen
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Todo's
+-----
+ * test on Debian 7.0 (wheezy) -> bootstrap with python, aptitude, etc.
+
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+
+
+
+  [1]: http://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers

@@ -11,10 +11,12 @@ ffm_deploy_user: deploy
 ffm_deploy_password: '$6$RUwI5ZvxW8U$Iq1e1JpZbOIKjpWKM9FZGVvsZyDCJa.cHVLD3wRcTbLFL6LmA9oBZzz5NXDrNEIPKUu.Jl.CfngwY528mHOay1'
 
 # defaults for postfix.yml
+# valid options for ffm_postfix_mode are 'internet' or 'smarthost'
 ffm_postfix_mode: 'smarthost'
 
+# fqdn hostname
 ffm_fqdn_hostname : server.acme.tld
-# postfix smarthost
+# postfix smarthost only needed if ffm_postfix_mode equals 'smarthost'
 ffm_fqdn_smtp_relay : relay.acme.tld
 
 # defaults for logwatch.yml
