@@ -11,10 +11,10 @@ Requirements
 This role requires Ansible 1.4 or higher.
 
 It has successfully been tested on following Digital Ocean images
-Ubuntu 12.04 (Precise Pangolin)
-Ubuntu 12.10 (Quantal Quetzal)
-Ubuntu 13.04 (Raring Ringtail)
-Ubuntu 13.10 (Saucy Salamander)
+* Ubuntu 12.04 (Precise Pangolin)
+* Ubuntu 12.10 (Quantal Quetzal)
+* Ubuntu 13.04 (Raring Ringtail)
+* Ubuntu 13.10 (Saucy Salamander)
 
 Accelarated mod is disabled by default. Enabling the accelerated mode requires the `python-keyczar`package installed.
 
