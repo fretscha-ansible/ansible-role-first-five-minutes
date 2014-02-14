@@ -1,7 +1,7 @@
 # file: users.yml
 - name: set root root_password
   sudo: yes
-  user: name=root password={{ ffm_root_password }}
+  user: name=root password={{ first_five_minutes.root_password }}
   tags: setup
 
 - name: add group deploy
@@ -11,15 +11,20 @@
 
 - name: add user deploy
   sudo: yes
-  user: name={{ ffm_deploy_user }} group=deploy password={{ ffm_deploy_password }} shell=/bin/bash state=present
+  user: name={{ first_five_minutes.deploy_user }} group=deploy password={{ first_five_minutes.deploy_password }} shell=/bin/bash state=present
   tags: setup
 
 - name: copy ssh pub key to deployment user
   sudo: yes
-  authorized_key: user={{ ffm_deploy_user }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}" state=present
+  authorized_key: user={{ first_five_minutes.deploy_user }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}" state=present
   tags: setup
+
+- name: enable sudoers.d
+  sudo: yes
+  lineinfile: dest=/etc/sudoers regexp='^#includedir /etc/sudoers.d' line='#includedir /etc/sudoers.d' state=present
+  tags : setup
 
 - name: add deploy_user to sudoers
   sudo: yes
-  template: src=user.j2 dest=/etc/sudoers.d/{{ ffm_deploy_user }}
+  template: src=user.j2 dest=/etc/sudoers.d/{{ first_five_minutes.deploy_user }} mode=0440
   tags: setup

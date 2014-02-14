@@ -9,13 +9,13 @@
   shell: ufw allow 22/tcp
 
 # on debian following is needed
-#- name: Enable ufw on sartup
-#  sudo: yes
-#  lineinfile: dest=/etc/ufw/ufw.conf regexp="^ENABLED" line="ENABLED=yes" state=present
+- name: Enable ufw on sartup
+  sudo: yes
+  lineinfile: dest=/etc/ufw/ufw.conf regexp="^ENABLED" line="ENABLED=yes" state=present
 #
-#- name: disable ipv6 ufw on sartup
-#  sudo: yes
-#  lineinfile: dest=/etc/ufw/ufw.conf regexp="^IPV6" line="IPV6=no" state=present
+- name: disable ipv6 ufw on sartup
+  sudo: yes
+  lineinfile: dest=/etc/ufw/ufw.conf regexp="^IPV6" line="IPV6=no" state=present
 
 - name: Enable ufw
   sudo: yes

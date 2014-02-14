@@ -1,9 +1,9 @@
-First Five Minutes (ffm)
+First Five Minutes
 ========
 
 Bryan Kennedy's blog post [My First 5 Minutes On A Server; Or, Essential Security for Linux Servers][1] inspired me to write this role for ansible.
 
-The goal of this role is an basic initial setup with little security tweaks.
+The goal of this role is an basic initial setup with minor security tweaks.
 
 Requirements
 ------------
@@ -22,7 +22,21 @@ Accelarated mod is disabled by default. Enabling the accelerated mode requires t
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Take a look at the roles/first_five_minutes/defaults/main.yml to see in detail how defaults are set.
+You shall override all defaults in the host_vars or/and group_vars.
+
+first_five_minutes.root_password
+
+first_five_minutes.deploy_user
+
+first_five_minutes.postfix_mode
+
+first_five_minutes.fqdn_hostname
+
+first_five_minutes.fqdn_smtp_relay
+
+first_five_minutes.logwatch_email
+
 
 Dependencies
 ------------

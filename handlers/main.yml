@@ -1,5 +1,5 @@
 ---
-# handlers file for role-first-five-minutes/
+# handlers file for role-first_five_minutes/
 - name: Restart ssh
   sudo: yes
   service: name=ssh state=restarted enabled=yes
