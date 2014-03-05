@@ -25,17 +25,17 @@ Role Variables
 Take a look at the roles/first_five_minutes/defaults/main.yml to see in detail how defaults are set.
 You shall override all defaults in the host_vars or/and group_vars.
 
-first_five_minutes.root_password
+ffm_root_password
 
-first_five_minutes.deploy_user
+ffm_deploy_user
 
-first_five_minutes.postfix_mode
+ffm_postfix_mode
 
-first_five_minutes.fqdn_hostname
+ffm_fqdn_hostname
 
-first_five_minutes.fqdn_smtp_relay
+ffm_fqdn_smtp_relay
 
-first_five_minutes.logwatch_email
+ffm_logwatch_email
 
 
 Dependencies

@@ -1,23 +1,23 @@
 ---
 # file: ufw.yml
-- name: Install ufw
+- name: ufw | Install ufw
   sudo: yes
   apt: pkg=ufw state=installed
 
-- name: allow port 22
+- name: ufw | allow port 22
   sudo: yes
   shell: ufw allow 22/tcp
 
 # on debian following is needed
-- name: Enable ufw on sartup
+- name: ufw | enable ufw on sartup
   sudo: yes
   lineinfile: dest=/etc/ufw/ufw.conf regexp="^ENABLED" line="ENABLED=yes" state=present
 #
-- name: disable ipv6 ufw on sartup
+- name: ufw | disable ipv6 ufw on sartup
   sudo: yes
   lineinfile: dest=/etc/ufw/ufw.conf regexp="^IPV6" line="IPV6=no" state=present
 
-- name: Enable ufw
+- name: ufw | enable ufw
   sudo: yes
   shell: echo 'y' | ufw enable
 

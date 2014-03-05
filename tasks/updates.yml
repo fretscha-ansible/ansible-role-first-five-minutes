@@ -1,9 +1,9 @@
 ---
-- name: set update cache and safe updates
+- name: updates | set update cache and safe updates
   sudo: yes
   apt: update_cache=yes cache_valid_time=3600 upgrade=safe
 
-- name: Install Common Packages
+- name: updates | install common packages
   sudo: yes
   apt: >
      pkg={{ item }}
@@ -12,10 +12,10 @@
   with_items:
      - unattended-upgrades
 
-- name: set debconf defaults for unattended-upgrades
+- name: updates | set debconf defaults for unattended-upgrades
   sudo: yes
   shell: 'echo "unattended-upgrades unattended-upgrades/enable_auto_updates boolean true" | debconf-set-selections'
 
-- name: unattended-upgrades
+- name: updates | unattended-upgrades
   sudo: yes
   shell: 'dpkg-reconfigure -p critical unattended-upgrades'

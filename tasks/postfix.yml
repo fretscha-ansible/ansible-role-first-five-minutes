@@ -1,15 +1,15 @@
 ---
 # file: postfix.yml
-- name: Set up Postfix as "relay mail"
+- name: postfix | set up postfix as "relay mail"
   sudo: yes
   template: src=postfix-smarthost.preseed.j2 dest=/tmp/postfix-smarthost.preseed validate='debconf-set-selections %s'
-  when: first_five_minutes.postfix_mode == 'smarthost'
+  when: ffm_postfix_mode == 'smarthost'
 
-- name: Set up Postfix as "mx"
+- name: postfix | set up Postfix as "mx"
   sudo: yes
   template: src=postfix.preseed.j2 dest=/tmp/postfix.preseed validate='debconf-set-selections %s'
-  when: first_five_minutes.postfix_mode == 'internet'
+  when: ffm_postfix_mode == 'internet'
 
-- name: Install Postfix Packages
+- name: postfix | install postfix packages
   sudo: yes
   apt: pkg=postfix state=installed update-cache=yes

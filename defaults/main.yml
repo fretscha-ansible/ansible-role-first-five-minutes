@@ -16,12 +16,12 @@ first_five_minutes:
     # defaults for postfix.yml
 
     # type of postfix configuration
-    # valid options for first_five_minutes.postfix_mode are 'internet' or 'smarthost'
+    # valid options for ffm_postfix_mode are 'internet' or 'smarthost'
     # default='smarthost'
     postfix_mode: 'smarthost'
     # fqdn hostname
     fqdn_hostname : server.acme.tld
-    # postfix smarthost only needed if first_five_minutes.postfix_mode equals 'smarthost'
+    # postfix smarthost only needed if ffm_postfix_mode equals 'smarthost'
     fqdn_smtp_relay : relay.acme.tld
 
     # defaults for logwatch.yml

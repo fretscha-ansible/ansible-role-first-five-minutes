@@ -1,30 +1,44 @@
 # file: users.yml
-- name: set root root_password
+
+
+- name: users | set root root_password
   sudo: yes
-  user: name=root password={{ first_five_minutes.root_password }}
+  user: >
+    name=root
+    password="{{ lookup('password', pwd + '/credentials/' + ffm_fqdn_hostname + '/root') }}"
   tags: setup
 
-- name: add group deploy
+
+- name: users | add group deploy
   sudo: yes
   group: name=deploy state=present
   tags: setup
 
-- name: add user deploy
+
+- name: users | add user deploy
   sudo: yes
-  user: name={{ first_five_minutes.deploy_user }} group=deploy password={{ first_five_minutes.deploy_password }} shell=/bin/bash state=present
+  user: >
+    name={{ ffm_deploy_user }}
+    group=deploy
+    password="{{ lookup('password', pwd + '/credentials/' + ffm_fqdn_hostname + '/deploy') }}"
+    shell=/bin/bash
+    state=present
   tags: setup
 
-- name: copy ssh pub key to deployment user
+
+- name: users | copy ssh pub key to deployment user
   sudo: yes
-  authorized_key: user={{ first_five_minutes.deploy_user }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}" state=present
+  authorized_key: user={{ ffm_deploy_user }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}" state=present
   tags: setup
 
-- name: enable sudoers.d
+
+- name: users | enable sudoers.d
   sudo: yes
   lineinfile: dest=/etc/sudoers regexp='^#includedir /etc/sudoers.d' line='#includedir /etc/sudoers.d' state=present
   tags : setup
 
-- name: add deploy_user to sudoers
+
+- name: users | add deploy_user to sudoers
   sudo: yes
-  template: src=user.j2 dest=/etc/sudoers.d/{{ first_five_minutes.deploy_user }} mode=0440
+  template: src=user.j2 dest=/etc/sudoers.d/{{ ffm_deploy_user }} mode=0440
   tags: setup
