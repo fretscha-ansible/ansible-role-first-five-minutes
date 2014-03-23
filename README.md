@@ -57,7 +57,8 @@ You shall override all defaults in the host_vars or/and group_vars.
 
 To create a password hash from your plaintext_password run the following line in linux python console (does not work on osx) :
 ```python
-    python -c "import crypt, getpass, random, string; print crypt.crypt(getpass.getpass(), '\$6\$%s\$' % \"\".join(random.sample(string.letters+string.digits, 8)))"
+    python -c "import crypt, getpass, random, string; \
+    print crypt.crypt(getpass.getpass(), '\$6\$%s\$' % \"\".join(random.sample(string.letters+string.digits, 8)))"
 ```
 
 Dependencies
