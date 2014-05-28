@@ -12,7 +12,8 @@ This role requires Ansible 1.6 or higher.
 
 It has successfully been tested on following Digital Ocean images
 * Ubuntu 14.04 (trusty tahr)
- 
+
+Older releases of Ubuntu (12.04 | 12.10 | 13.04 | 13.10) had been partially tested successfully.
 
 Accelarated mode is disabled by default. Enabling the accelerated mode requires the `python-keyczar`package installed.
 
