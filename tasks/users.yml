@@ -5,7 +5,7 @@
   sudo: yes
   user: >
     name=root
-    password="{{ lookup('password', pwd + '/credentials/' + ffm_fqdn_hostname + '/root') }}"
+    password="{{ ffm_root_password  }}"
   tags: setup
 
 
@@ -20,7 +20,7 @@
   user: >
     name={{ ffm_deploy_user }}
     group=deploy
-    password="{{ lookup('password', pwd + '/credentials/' + ffm_fqdn_hostname + '/deploy') }}"
+    password="{{ ffm_deploy_password }}"
     shell=/bin/bash
     state=present
   tags: setup
