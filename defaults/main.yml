@@ -1,28 +1,26 @@
 ---
 # defaults file for role-first_five_minutes/
 
-# defaults for user.yml
-first_five_minutes:
-    # root_password for console login as root
-    # default='test'
-    root_password: '$6$flk7B1CUbp$ymzXEZ.TRlPWmJaDLI1Y4T56uzTl1N0.QSTS1pfkCDd6LLY3QzyyKVTU3ayVYV5pQgutIeFwSWQRQzsJzGmzR0'
-    # deploy user which will be used for ansible to deploy. Has sudo rights without password
-    # default='deploy'
-    deploy_user: deploy
-    # password for the deploy user for ssh login without private key:
-    # default='test'
-    deploy_password: '$6$RUwI5ZvxW8U$Iq1e1JpZbOIKjpWKM9FZGVvsZyDCJa.cHVLD3wRcTbLFL6LmA9oBZzz5NXDrNEIPKUu.Jl.CfngwY528mHOay1'
+# root_password for console login as root
+# default='test'
+ffm_root_password: '$6$flk7B1CUbp$ymzXEZ.TRlPWmJaDLI1Y4T56uzTl1N0.QSTS1pfkCDd6LLY3QzyyKVTU3ayVYV5pQgutIeFwSWQRQzsJzGmzR0'
+# deploy user which will be used for ansible to deploy. Has sudo rights without password
+# default='deploy'
+ffm_deploy_user: deploy
+# password for the deploy user for ssh login without private key:
+# default='test'
+ffm_deploy_password: '$6$RUwI5ZvxW8U$Iq1e1JpZbOIKjpWKM9FZGVvsZyDCJa.cHVLD3wRcTbLFL6LmA9oBZzz5NXDrNEIPKUu.Jl.CfngwY528mHOay1'
 
-    # defaults for postfix.yml
+# defaults for postfix.yml
 
-    # type of postfix configuration
-    # valid options for ffm_postfix_mode are 'internet' or 'smarthost'
-    # default='smarthost'
-    postfix_mode: 'smarthost'
-    # fqdn hostname
-    fqdn_hostname : server.acme.tld
-    # postfix smarthost only needed if ffm_postfix_mode equals 'smarthost'
-    fqdn_smtp_relay : relay.acme.tld
+# type of postfix configuration
+# valid options for ffm_postfix_mode are 'internet' or 'smarthost'
+# default='smarthost'
+ffm_postfix_mode: 'smarthost'
+# fqdn hostname
+ffm_fqdn_hostname : server.acme.tld
+# postfix smarthost only needed if ffm_postfix_mode equals 'smarthost'
+ffm_fqdn_smtp_relay : relay.acme.tld
 
-    # defaults for logwatch.yml
-    logwatch_email: monitor@acme.tld
+# defaults for logwatch.yml
+ffm_logwatch_email: monitor@acme.tld
