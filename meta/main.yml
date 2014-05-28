@@ -3,7 +3,7 @@ galaxy_info:
   author: Frederic Tschannen
   description: First five minutes on a server
   license: MIT
-  min_ansible_version: 1.4
+  min_ansible_version: 1.6
   platforms:
     - name: Ubuntu
       versions:
@@ -11,7 +11,7 @@ galaxy_info:
         - quantal
         - raring
         - saucy
-        #- trusty
+        - trusty
   categories:
   - packaging
   - system
