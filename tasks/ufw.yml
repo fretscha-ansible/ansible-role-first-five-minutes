@@ -4,20 +4,10 @@
   sudo: yes
   apt: pkg=ufw state=installed
 
-- name: ufw | allow port 22
+- name: ufw | allow openssh
   sudo: yes
-  shell: ufw allow 22/tcp
+  ufw: rule=allow name=OpenSSH
 
-# on debian following is needed
-- name: ufw | enable ufw on sartup
+- name: ufw | enabled ufw on startup with deny policy
   sudo: yes
-  lineinfile: dest=/etc/ufw/ufw.conf regexp="^ENABLED" line="ENABLED=yes" state=present
-#
-- name: ufw | disable ipv6 ufw on sartup
-  sudo: yes
-  lineinfile: dest=/etc/ufw/ufw.conf regexp="^IPV6" line="IPV6=no" state=present
-
-- name: ufw | enable ufw
-  sudo: yes
-  shell: echo 'y' | ufw enable
-
+  ufw: state=enabled policy=deny
