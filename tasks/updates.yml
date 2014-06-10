@@ -12,10 +12,10 @@
   with_items:
      - unattended-upgrades
 
-#- name: updates | set debconf defaults for unattended-upgrades
-#  sudo: yes
-#  shell: 'echo "unattended-upgrades unattended-upgrades/enable_auto_updates boolean true" | debconf-set-selections'
+- name: updates | set debconf defaults for unattended-upgrades
+  sudo: yes
+  shell: 'echo "unattended-upgrades unattended-upgrades/enable_auto_updates boolean true" | debconf-set-selections'
 
-#- name: updates | unattended-upgrades
-#  sudo: yes
-#  shell: 'dpkg-reconfigure -p critical unattended-upgrades'
+- name: updates | unattended-upgrades
+  sudo: yes
+  shell: 'dpkg-reconfigure -p critical unattended-upgrades'
