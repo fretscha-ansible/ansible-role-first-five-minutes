@@ -1,7 +1,11 @@
 ---
 # file: auth.yml
 
-- name: auth | Disallow root SSH access
+- name: auth | disallow root SSH access
   sudo: yes
-  lineinfile: dest=/etc/ssh/sshd_config regexp="^PermitRootLogin" line="PermitRootLogin no" state=present
+  lineinfile: >
+    dest=/etc/ssh/sshd_config
+    regexp="^PermitRootLogin"
+    line="PermitRootLogin no"
+    state=present
   notify: restart ssh

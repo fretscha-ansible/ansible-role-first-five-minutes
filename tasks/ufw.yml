@@ -1,6 +1,6 @@
 ---
 # file: ufw.yml
-- name: ufw | Install ufw
+- name: ufw | install ufw
   sudo: yes
   apt: pkg=ufw state=installed
 

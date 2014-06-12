@@ -5,7 +5,7 @@
   sudo: yes
   user: >
     name=root
-    password="{{ ffm_root_password  }}"
+    password="{{ ffm_root_password }}"
   tags: setup
 
 
@@ -28,13 +28,20 @@
 
 - name: users | copy ssh pub key to deployment user
   sudo: yes
-  authorized_key: user={{ ffm_deploy_user }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}" state=present
+  authorized_key: >
+    user={{ ffm_deploy_user }}
+    key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    state=present
   tags: setup
 
 
 - name: users | enable sudoers.d
   sudo: yes
-  lineinfile: dest=/etc/sudoers regexp='^#includedir /etc/sudoers.d' line='#includedir /etc/sudoers.d' state=present
+  lineinfile: >
+    dest=/etc/sudoers
+    regexp='^#includedir /etc/sudoers.d'
+    line='#includedir /etc/sudoers.d'
+    state=present
   tags : setup
 
 
