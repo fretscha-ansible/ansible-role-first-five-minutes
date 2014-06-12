@@ -9,7 +9,8 @@ before_install:
   - sudo apt-get update -qq
   - sudo apt-get install aptitude
   - sudo apt-get install ufw
-  - sudo ufw status verbose
+  - sudo ufw default deny incoming
+  - sudo ufw default allow outgoing
   - sudo iptables -L -n -v
   - sudo ufw --force enable
   - sudo ufw status verbose
