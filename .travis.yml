@@ -9,8 +9,10 @@ before_install:
   - sudo apt-get update -qq
   - sudo apt-get install aptitude
   - sudo apt-get install ufw
+  - sudo ufw reset
   - sudo ufw default allow incoming
   - sudo ufw default allow outgoing
+  - sudo ufw allow 22/tcp
   - sudo ufw --force enable
   - sudo ufw status verbose
 
