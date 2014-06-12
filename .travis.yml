@@ -10,9 +10,8 @@ before_install:
   - sudo apt-get install aptitude
   - sudo apt-get install ufw
   - sudo ufw status verbose
-  - sudo ufw default allow
   - sudo iptables -L -n -v
-  - sudo ufw enable --force
+  - sudo ufw --force enable
   - sudo ufw status verbose
 
 install:
