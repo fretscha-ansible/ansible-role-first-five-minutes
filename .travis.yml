@@ -7,6 +7,7 @@ env:
 
 before_install:
   - sudo apt-get update -qq
+  - sudo apt-get install aptitude
 
 install:
   # Install Ansible.
