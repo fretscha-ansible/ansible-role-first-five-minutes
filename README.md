@@ -1,6 +1,8 @@
 First Five Minutes
 ========
 
+[![Build Status](https://travis-ci.org/fretscha-ansible/ansible-role-first-five-minutes.svg?branch=master)](https://travis-ci.org/fretscha-ansible/ansible-role-first-five-minutes)
+
 Bryan Kennedy's blog post [My First 5 Minutes On A Server; Or, Essential Security for Linux Servers][1] inspired me to write this role for ansible.
 
 The goal of this role is a basic initial setup with minor security tweaks.
