@@ -8,6 +8,7 @@ env:
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install aptitude
+  - sudo apt-get install ufw
 
 install:
   # Install Ansible.
