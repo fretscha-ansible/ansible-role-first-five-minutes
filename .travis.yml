@@ -11,7 +11,8 @@ before_install:
   - sudo apt-get install ufw
   - sudo ufw status verbose
   - sudo ufw default allow
-  - sudo ufw enable
+  - sudo iptables -L -n -v
+  - sudo ufw enable --force
   - sudo ufw status verbose
 
 install:
