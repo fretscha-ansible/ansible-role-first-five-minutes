@@ -29,7 +29,7 @@
   file:
     path: /usr/local/bin/notify-login.py
     state: absent
-  when: ! ffm_notify_login
+  when: not ffm_notify_login
 
 
 - name: notify | not notify on login
@@ -38,4 +38,4 @@
     dest: /etc/pam.d/sshd
     regexp: "^session optional pam_exec.so seteuid /usr/local/bin/notify-login.py"
     state: absent
-  when: ! ffm_notify_login
+  when: not ffm_notify_login
