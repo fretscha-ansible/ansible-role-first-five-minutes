@@ -2,4 +2,14 @@
 # handlers file for role-first_five_minutes/
 - name: restart ssh
   sudo: yes
-  service: name=ssh state=restarted enabled=yes
+  service:
+    name: ssh
+    state: restarted
+    enabled: yes
+
+- name: restart unattended upgrades
+  sudo: yes
+  service:
+    name: unattended-upgrades
+    state: restarted
+    enabled: yes

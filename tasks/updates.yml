@@ -5,17 +5,20 @@
 
 - name: updates | install common packages
   sudo: yes
-  apt: >
-     pkg={{ item }}
-     state=present
-     update-cache=yes
+  apt:
+     pkg: "{{ item }}"
+     state: present
+     update-cache: yes
   with_items:
      - unattended-upgrades
 
-#- name: updates | set debconf defaults for unattended-upgrades
-#  sudo: yes
-#  shell: 'echo "unattended-upgrades unattended-upgrades/enable_auto_updates boolean true" | debconf-set-selections'
 
-#- name: updates | unattended-upgrades
-#  sudo: yes
-#  shell: 'dpkg-reconfigure -p critical unattended-upgrades
+- name: updates | activate unattended upgrades
+  sudo: yes
+  template:
+    src: updates/20auto-upgrades
+    dest: /etc/apt/apt.conf.d/20auto-upgrades
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart unattended upgrades
