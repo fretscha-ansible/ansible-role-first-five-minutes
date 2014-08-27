@@ -11,6 +11,7 @@
 - include: users.yml
 - include: postfix.yml
 - include: logwatch.yml
+- include: notify.yml
 - include: fail2ban.yml
 - include: ufw.yml
 - include: auth.yml

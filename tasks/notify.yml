@@ -1,0 +1,41 @@
+---
+# file: notify.yml
+
+
+- name: notify | copy template
+  sudo: yes
+  template:
+    src: notify-login.py.j2
+    dest: /usr/local/bin/notify-login.py
+    owner: root
+    group: root
+    mode: 0755
+  when: ffm_notify_login
+
+
+- name: notify | notify on login
+  sudo: yes
+  lineinfile:
+    dest: /etc/pam.d/sshd
+    regexp: "^session optional pam_exec.so seteuid"
+    line: "session optional pam_exec.so seteuid /usr/local/bin/notify-login.py"
+    state: present
+    create: yes
+  when: ffm_notify_login
+
+
+- name: notify | remove template
+  sudo: yes
+  file:
+    path: /usr/local/bin/notify-login.py
+    state: absent
+  when: ! ffm_notify_login
+
+
+- name: notify | not notify on login
+  sudo: yes
+  lineinfile:
+    dest: /etc/pam.d/sshd
+    regexp: "^session optional pam_exec.so seteuid /usr/local/bin/notify-login.py"
+    state: absent
+  when: ! ffm_notify_login
