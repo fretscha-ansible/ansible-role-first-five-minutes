@@ -11,7 +11,7 @@
 
 - name: users | add group deploy
   sudo: yes
-  group: name=deploy state=present
+  group: name={{ ffm_deploy_group }} state=present
   tags: setup
 
 
@@ -19,7 +19,7 @@
   sudo: yes
   user: >
     name={{ ffm_deploy_user }}
-    group=deploy
+    group={{ ffm_deploy_group }}
     password="{{ ffm_deploy_password }}"
     shell=/bin/bash
     state=present
