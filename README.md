@@ -32,7 +32,11 @@ You shall override all defaults in the host_vars or/and group_vars.
 
 * `ffm_deploy_user`:
   - Description: deploy user which will be used for ansible to deploy. Has sudo rights without password.
-  - Default: `default`
+  - Default: `deploy`
+
+* `ffm_deploy_user`:
+  - Description: deploy group which will be used for ansible to deploy.
+  - Default: `deploy`
 
 * `ffm_deploy_password`:
   - Description: password hash for login as deploy.
@@ -98,7 +102,9 @@ Todo's
 Author Information
 ------------------
 
+Frederic Tschannen
 
+[GitHub project page](https://github.com/fretscha-ansible/ansible-role-first-five-minutes)
 
 
   [1]: http://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers
