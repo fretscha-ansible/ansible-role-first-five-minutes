@@ -3,11 +3,10 @@ import os
 import socket
 import smtplib
 
-sender = 'monitor@umx.net'
-recepient= 'monitor@umx.net'
+sender = '{{ ffm_notify_login_email }}'
+recepient = '{{ ffm_notify_login_email }}'
 
 if os.getenv('PAM_TYPE') != 'close_session':
-    subject="SSH Login: {0} from {1} on {2}".format(os.getenv('PAM_USER'), os.getenv('PAM_RHOST'),  socket.gethostname())
+    subject = "SSH Login: {0} from {1} on {2}".format(os.getenv('PAM_USER'), os.getenv('PAM_RHOST'), socket.gethostname())
     message = "From: {0}\nTo: {1}\nSubject: {2}\n\n{3}".format(sender, recepient, subject, os.environ)
     smtplib.SMTP('localhost').sendmail(sender, recepient, message)
-

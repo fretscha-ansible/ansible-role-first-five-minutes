@@ -27,4 +27,7 @@ ffm_fqdn_smtp_relay : relay.acme.tld
 
 # defaults for logwatch.yml
 ffm_logwatch_email: monitor@acme.tld
+
+#default for notify login
 ffm_notify_login: yes
+ffm_notify_login_email: monitor@acme.tld
