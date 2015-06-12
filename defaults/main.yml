@@ -5,8 +5,8 @@
 # Universal / GMT / Zulu
 ffm_timzone: 'Etc/UTC'
 
-# upgrade policy: safe, full, dist
-ffm_upgrade:
+# upgrade policy: no, safe, full, dist
+ffm_upgrade: no
 
 # root_password for console login as root
 # default='test'
