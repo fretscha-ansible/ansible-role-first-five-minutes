@@ -1,12 +1,10 @@
 ---
-- name: updates | set update cache and safe updates
-  sudo: yes
-  apt: update_cache=yes cache_valid_time=3600 upgrade=safe
-
-- name: updates | upgrade
+- name: updates | set update cache and safe upgrade
   sudo: yes
   apt:
-    upgrade: dist
+    update_cache: yes
+    cache_valid_time: 3600
+    upgrade: safe
 
 - name: updates | install common packages
   sudo: yes
