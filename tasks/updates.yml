@@ -11,7 +11,7 @@
     update_cache: yes
     cache_valid_time: 3600
     upgrade: "{{ ffm_upgrade }}"
-  when: ffm_upgrade is defined and not ffm_upgrade == "no"
+  when: ffm_upgrade is defined and ffm_upgrade
 
 - name: updates | install common packages
   sudo: yes

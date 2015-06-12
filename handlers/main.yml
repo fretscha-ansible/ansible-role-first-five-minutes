@@ -1,18 +1,15 @@
 ---
 # handlers file for role-first_five_minutes/
-- name: restart ssh
+
+# until service restart bug is fixed we fire command
+
+- name: restart sshd
   sudo: yes
-  service:
-    name: ssh
-    state: restarted
-    enabled: yes
+  command: service ssh restart
 
 - name: restart unattended upgrades
   sudo: yes
-  service:
-    name: unattended-upgrades
-    state: restarted
-    enabled: yes
+  command: service unattended-upgrades restart
 
 - name: update timezone
   sudo: yes
