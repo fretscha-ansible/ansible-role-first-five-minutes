@@ -1,7 +1,8 @@
 ---
 # handlers file for role-first_five_minutes/
 
-# until service restart bug is fixed we fire command
+# until service bug is resolved, we fire command
+# https://github.com/ansible/ansible-modules-core/issues/1170
 
 - name: restart sshd
   sudo: yes
