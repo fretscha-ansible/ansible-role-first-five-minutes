@@ -1,4 +1,6 @@
 ---
 # vars file for role-first_five_minutes/
 
+include_vars: "{{ ansible_os_family | lower }}.yml"
+
 pwd: "{{ lookup('env','PWD') }}"

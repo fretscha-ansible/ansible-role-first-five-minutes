@@ -1,0 +1,6 @@
+---
+# debian vars file for role-first_five_minutes/
+
+# common packages
+ffm_common_packages:
+    - python3
