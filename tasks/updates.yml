@@ -1,17 +1,27 @@
 ---
-- name: updates | set update cache and safe updates
+- name: updates | set update cache and safe upgrade
   sudo: yes
-  apt: update_cache=yes cache_valid_time=3600 upgrade=safe
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: updates | upgrade
+  sudo: yes
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+    upgrade: "{{ ffm_upgrade }}"
+  when: ffm_upgrade is defined and not ffm_upgrade == "no"
 
 - name: updates | install common packages
   sudo: yes
   apt:
-     pkg: "{{ item }}"
-     state: present
-     update-cache: yes
+    pkg: "{{ item }}"
+    state: present
+    update-cache: yes
   with_items:
-     - unattended-upgrades
-
+     - "{{ ffm_common_packages }}"
+  when:  ffm_common_packages is defined
 
 - name: updates | activate unattended upgrades
   sudo: yes
