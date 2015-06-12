@@ -13,3 +13,7 @@
     name: unattended-upgrades
     state: restarted
     enabled: yes
+
+- name: update timezone
+  sudo: yes
+  command: dpkg-reconfigure --frontend noninteractive tzdata

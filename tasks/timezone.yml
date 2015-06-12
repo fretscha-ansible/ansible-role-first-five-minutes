@@ -1,0 +1,14 @@
+---
+# file: timezone.yml
+
+
+- name: timezone | copy template
+  sudo: yes
+  template:
+    src: timezone.j2
+    dest: /etc/timezone
+    owner: root
+    group: root
+    mode: 0644
+  notify: update timezone
+
