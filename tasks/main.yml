@@ -1,11 +1,6 @@
 ---
 # file: main.yml
 
-- name: Prepare acceleration on all servers
-  sudo: yes
-  apt: pkg=python-keyczar state=present update-cache=yes
-  tags: setup
-
 - include: timezone.yml
 - include: updates.yml
 - include: users.yml
