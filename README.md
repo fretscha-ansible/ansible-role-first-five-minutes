@@ -13,8 +13,11 @@ Requirements
 This role requires Ansible 1.6 or higher.
 
 It has successfully been tested on following [Digital Ocean][2] images
+
 * Ubuntu 14.04 (Trusty Tahr)
+
 * Ubuntu 14.10 (Utopic Unicorn)
+
 * Ubuntu 15.04 (Vivid Vervet)
   - needs the pre-installation of python -  by default only python 3 is installed on vivid, which is not supported by ansible <= 1.9.1 yet.
 
