@@ -7,6 +7,8 @@ galaxy_info:
   platforms:
     - name: Ubuntu
       versions:
+        - vivid
+        - utopic
         - trusty
   categories:
   - packaging
