@@ -6,7 +6,7 @@
 ffm_timzone: 'Etc/UTC'
 
 # upgrade policy: no, safe, full, dist
-ffm_upgrade: no
+ffm_upgrade: 'dist'
 
 # root_password for console login as root
 # default='test'

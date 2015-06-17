@@ -1,4 +1,8 @@
 ---
+
+- include_vars: "{{ ansible_os_family | lower }}.yml"
+
+
 - name: updates | set update cache and safe upgrade
   sudo: yes
   apt:
@@ -11,7 +15,7 @@
     update_cache: yes
     cache_valid_time: 3600
     upgrade: "{{ ffm_upgrade }}"
-  when: ffm_upgrade is defined and ffm_upgrade
+  when: ffm_upgrade != 'no'
 
 - name: updates | install common packages
   sudo: yes
@@ -23,6 +27,15 @@
      - "{{ ffm_common_packages }}"
   when:  ffm_common_packages is defined
 
+- name: updates | unattended upgrades
+  sudo: yes
+  apt:
+    pkg: "unattended-upgrades"
+    state: present
+    update-cache: yes
+  notify: restart unattended upgrades
+  when: ffm_upgrade != 'no'
+
 - name: updates | activate unattended upgrades
   sudo: yes
   template:
@@ -32,3 +45,4 @@
     group: root
     mode: 0644
   notify: restart unattended upgrades
+  when: ffm_upgrade != 'no'
