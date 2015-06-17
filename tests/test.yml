@@ -1,4 +1,6 @@
 ---
+ffm_upgrade: 'no'
+
 - hosts: localhost
   remote_user: root
   roles:
